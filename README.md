@@ -8,12 +8,14 @@ redis-server.exe redis.windows.conf
 ```
 
 
+
 2.连接服务:
 ```Redis
 redis-cli.exe -h localhost -p 6379 -a 123456
 
 keys *
 ```
+
 
 
 3.字符串操作命令
@@ -27,6 +29,7 @@ GET key 获取指定key的值
 SETEX key seconds value 设置指定key的值，并将 key 的过期时间设为 seconds 秒
 
 SETNX key value 只有在 key 不存在时设置 key 的值
+
 
 
 4.哈希操作命令
@@ -44,6 +47,7 @@ HKEYS key  获取哈希表中所有字段
 HVALS key  获取哈希表中所有值
 
 
+
 5.列表操作命令
 
 Redis 列表是简单的字符串列表，按照插入顺序排序，常用命令：
@@ -57,6 +61,7 @@ LRANGE key start stop  获取列表指定范围内的元素
 RPOP key  移除并获取列表最后一个元素(右边)
 
 LLEN key  获取列表长度
+
 
 
 6.集合操作命令
@@ -76,6 +81,7 @@ SUNION key1 [key2]  返回所有给定集合的并集
 SREM key member1 [member2]  删除集合中一个或多个成员
 
 
+
 7.有序集合操作命令
 
 Redis有序集合是string类型元素的集合，且不允许有重复成员。每个元素都会关联一个double类型的分数。常用命令：
@@ -87,6 +93,7 @@ ZRANGE key start stop [WITHSCORES]  通过索引区间返回有序集合中指�
 ZINCRBY key increment member  有序集合中对指定成员的分数加上增量 increment
 
 ZREM key member [member ...]  移除有序集合中的一个或多个成员
+
 
 
 8.通用命令
