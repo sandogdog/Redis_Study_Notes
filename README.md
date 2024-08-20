@@ -107,3 +107,17 @@ EXISTS key  检查给定 key 是否存在
 TYPE key  返回 key 所储存的值的类型
 
 DEL key  该命令用于在 key 存在是删除 key
+
+<br>
+
+9.项目开发中的实例：
+```Java
+//将所有的菜品缓存数据清理掉，所有以dish_开头的key
+cleanCache("dish*");
+
+private void cleanCache(String pattern) {
+  Set keys = redisTemplate.keys(pattern);
+  redisTemplate.delete(keys);
+    }
+```
+删除dish_开头key是使用dish*的pattern。
