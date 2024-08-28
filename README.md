@@ -127,9 +127,10 @@ private void cleanCache(String pattern) {
 #### 10.Redis 分布式锁
 
 分布式锁的作用:
+
 分布式锁的目的是在分布式系统中协调多个进程或线程对共享资源的访问，确保同一时间只有一个进程能访问某个资源，防止并发冲突。
 
-分布式锁的实现原理
+分布式锁的实现原理:
 
 Redis 的分布式锁利用了 SETNX（Set if Not Exists） 和 EXPIRE（设置过期时间）来实现。典型的步骤如下：
 
@@ -196,3 +197,103 @@ try {
 分布式任务调度 Redisson 提供了类似于 Java Executor Service 的功能，支持在 Redis 集群上调度和执行分布式任务。这些任务可以是异步执行的，并支持失败重试等机制。
 
 分布式缓存 Redisson 可以作为分布式缓存解决方案，支持 TTL（过期时间）、LRU、LFU 等常见的缓存过期策略。它还提供了像 本地缓存与分布式缓存相结合 的解决方案，适用于高性能、高并发的场景。
+
+<br>
+
+12.Redlock 是一种分布式锁算法，由 Redis 的作者 Antirez 提出，用来确保在分布式环境中多个 Redis 实例下的锁安全性和可靠性。
+
+为什么需要 Redlock？
+
+在分布式系统中，如果你只有一个 Redis 实例用于锁操作（如 SETNX），可能会因为单点故障导致锁机制失效。这就是为什么我们需要一种更安全的分布式锁算法来确保锁在多个 Redis 实例中是有效的和一致的。
+
+Redlock 的核心原理:
+
+Redlock 的核心思路是在多个独立的 Redis 实例上获取锁，确保即使有些实例不可用或失效，锁的整体逻辑仍然可以正常运行。
+
+Redlock 的步骤:
+
+1)在 N 个 Redis 实例上尝试获取锁：N 通常是一个奇数（如 3 或 5），这些实例彼此独立。
+
+2)生成唯一的锁标识：每个锁请求会生成一个全局唯一的标识符（通常使用 UUID）。
+
+3)在每个 Redis 实例上设置锁：
+
+·使用命令 SET key value NX PX ttl，NX 保证只有当键不存在时才设置锁，PX 设置锁的过期时间。
+
+·要求锁在每个 Redis 实例上的设置时间要非常短，通常需要在网络往返时间内完成。
+
+4)锁成功的条件：
+
+·当且仅当在大多数（即 N/2 + 1）Redis 实例上成功获取锁时，认为锁获取成功。
+
+·例如，在 5 个实例中，至少需要在 3 个实例上获取到锁。
+
+5)锁的超时时间：
+
+·锁的过期时间需要足够短，以确保锁在失效或出现网络分区时能够自动释放。
+
+·锁的超时时间必须比完成实际业务逻辑所需的最长时间要长。
+
+锁的释放：
+
+6)锁的释放也是通过向各个 Redis 实例发送删除命令 DEL key，且要保证只能删除由自己持有的锁。通常会在删除时比对锁的标识符，确认是当前持有者才能删除。
+
+Redlock 的优点
+
+·容错性强：即使某些 Redis 实例不可用，算法仍能确保大多数实例上锁的一致性，从而避免了单点故障问题。
+
+·防止死锁：通过锁的过期时间，确保锁不会因为意外情况（如进程崩溃或网络分区）而永久占用。
+
+·一致性：通过在大多数节点上获取锁来保证分布式系统中的一致性。
+
+Redlock 的应用场景
+
+Redlock 适用于以下场景：
+
+·需要高可靠性的分布式锁，并且不能容忍单点故障的业务场景。
+
+·分布式系统中共享资源的竞争问题，如跨多个节点进行库存扣减等操作。
+
+Redlock 的局限性
+
+·时间敏感性：Redlock 依赖于锁的过期时间和节点响应时间，网络延迟、时钟漂移等问题可能影响锁的正确性。
+
+·实现复杂：相比简单的 Redis 锁，Redlock 的实现和使用更加复杂，可能需要更细致的调试和配置。
+
+Redlock 示例
+
+以下是一个使用 Redlock 机制的简化代码示例，说明如何在多个 Redis 实例上获取分布式锁：
+```Java
+// 假设有多个 Redis 实例
+List<RedisInstance> redisInstances = Arrays.asList(redis1, redis2, redis3, redis4, redis5);
+
+// 全局唯一锁标识
+String lockId = UUID.randomUUID().toString();
+boolean isLocked = true;
+
+// 在 N/2 + 1 个实例上获取锁
+int successCount = 0;
+for (RedisInstance redis : redisInstances) {
+    if (redis.setLock(key, lockId, ttl)) {
+        successCount++;
+    }
+}
+
+// 如果在大多数实例上获得锁，认为成功
+if (successCount >= redisInstances.size() / 2 + 1) {
+    // 执行业务逻辑
+} else {
+    isLocked = false;
+    // 获取锁失败，释放已经获取到的锁
+    for (RedisInstance redis : redisInstances) {
+        redis.releaseLock(key, lockId);
+    }
+}
+
+// 业务逻辑结束后，释放锁
+if (isLocked) {
+    for (RedisInstance redis : redisInstances) {
+        redis.releaseLock(key, lockId);
+    }
+}
+```
