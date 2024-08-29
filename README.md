@@ -312,6 +312,10 @@ if (isLocked) {
 
 布隆过滤器（Bloom Filter）：在查询缓存或数据库之前，使用布隆过滤器判断键是否存在，避免无效查询直接进入数据库。
 
+![image](https://github.com/user-attachments/assets/59ec097c-bc7f-4421-9728-cb8d1accc7a3)
+
+<br>
+
 缓存击穿（Cache Breakdown）：
 
 问题：缓存击穿是指某些缓存项在某一时刻失效，大量并发请求同时涌入查询同一条数据，由于缓存失效，这些请求都直接访问数据库，可能导致数据库瞬时压力过大。
