@@ -337,3 +337,23 @@ if (isLocked) {
 双缓存策略：在缓存即将失效时，使用后台任务自动延长热点数据的缓存时间，或者使用双缓存策略，保证缓存数据的持续可用。
 
 限流和降级：当发现缓存雪崩的情况时，可以通过限流机制减少请求的数量，或者启用降级方案，返回默认值或部分降级数据，减少数据库压力。
+
+---
+### 14.使用 Redisson 实现布隆过滤器的示例：
+```Java
+// 初始化 Redisson 客户端
+RedissonClient redisson = Redisson.create();
+
+// 获取布隆过滤器实例
+RBloomFilter<String> bloomFilter = redisson.getBloomFilter("sampleBloomFilter");
+
+// 初始化布隆过滤器，预计插入数量为100000，误差率为0.03
+bloomFilter.tryInit(100000L, 0.03);
+
+// 添加元素
+bloomFilter.add("element1");
+
+// 判断元素是否存在
+boolean exists = bloomFilter.contains("element1");  // true
+boolean notExists = bloomFilter.contains("element2");  // false
+```
