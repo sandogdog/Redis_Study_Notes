@@ -7,7 +7,7 @@
 redis-server.exe redis.windows.conf
 ```
 
-<br>
+---
 
 #### 2.连接服务:
 ```Redis
@@ -16,7 +16,7 @@ redis-cli.exe -h localhost -p 6379 -a 123456
 keys *
 ```
 
-<br>
+---
 
 #### 3.字符串操作命令
 
@@ -30,7 +30,7 @@ SETEX key seconds value 设置指定key的值，并将 key 的过期时间设为
 
 SETNX key value 只有在 key 不存在时设置 key 的值
 
-<br>
+---
 
 #### 4.哈希操作命令
 
@@ -46,7 +46,7 @@ HKEYS key  获取哈希表中所有字段
 
 HVALS key  获取哈希表中所有值
 
-<br>
+---
 
 #### 5.列表操作命令
 
@@ -62,7 +62,7 @@ RPOP key  移除并获取列表最后一个元素(右边)
 
 LLEN key  获取列表长度
 
-<br>
+---
 
 #### 6.集合操作命令
 
@@ -80,7 +80,7 @@ SUNION key1 [key2]  返回所有给定集合的并集
 
 SREM key member1 [member2]  删除集合中一个或多个成员
 
-<br>
+---
 
 #### 7.有序集合操作命令
 
@@ -94,7 +94,7 @@ ZINCRBY key increment member  有序集合中对指定成员的分数加上增�
 
 ZREM key member [member ...]  移除有序集合中的一个或多个成员
 
-<br>
+---
 
 #### 8.通用命令
 
@@ -108,7 +108,7 @@ TYPE key  返回 key 所储存的值的类型
 
 DEL key  该命令用于在 key 存在是删除 key
 
-<br>
+---
 
 #### 9.项目开发中的实例：
 ```Java
@@ -122,7 +122,7 @@ private void cleanCache(String pattern) {
 ```
 删除dish_开头key是使用dish*的pattern。
 
-<br>
+---
 
 #### 10.Redis 分布式锁
 
@@ -154,7 +154,7 @@ if (lockAcquired) {
 }
 ```
 
-<br>
+---
 
 ### 11.Redisson 是一个基于 Redis 的 Java 驱动程序和工具集，它提供了比普通 Redis 客户端更多的高级功能，特别是适用于分布式系统中的各种需求。Redisson 提供了易于使用的 Redis 接口，支持多种 Redis 数据结构和分布式工具，如分布式锁、分布式集合、阻塞队列等。
 
@@ -389,3 +389,10 @@ bloomFilter.add("element1");
 boolean exists = bloomFilter.contains("element1");  // true
 boolean notExists = bloomFilter.contains("element2");  // false
 ```
+---
+
+### 15.双写一致性
+![image](https://github.com/user-attachments/assets/b8232a68-31b0-4e29-bd8d-209b12a9610c)
+
+![image](https://github.com/user-attachments/assets/777310dd-2999-4c94-ac1f-6dde0276f461)
+
