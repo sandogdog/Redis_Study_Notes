@@ -396,3 +396,6 @@ boolean notExists = bloomFilter.contains("element2");  // false
 
 ![image](https://github.com/user-attachments/assets/777310dd-2999-4c94-ac1f-6dde0276f461)
 
+![image](https://github.com/user-attachments/assets/71d63437-6115-46bc-ae51-9bdad07e2a21)
+
+![image](https://github.com/user-attachments/assets/ada74acc-97c0-4efc-a118-91c82ce5cba4)
