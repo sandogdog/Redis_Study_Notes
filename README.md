@@ -330,7 +330,7 @@ if (isLocked) {
 
 ---
 
-#### 13.“缓存三兄弟”指的是常见的三种缓存策略或方案，它们分别是：
+### 13.“缓存三兄弟”指的是常见的三种缓存策略或方案，它们分别是：
 
 1)缓存穿透（Cache Penetration）：
 
@@ -344,6 +344,9 @@ if (isLocked) {
 
 ![image](https://github.com/user-attachments/assets/59ec097c-bc7f-4421-9728-cb8d1accc7a3)
 
+![image](https://github.com/user-attachments/assets/e5e1c1a5-162c-4b2d-8085-adddbe90a313)
+
+
 <br>
 
 2）缓存击穿（Cache Breakdown）：
@@ -355,6 +358,9 @@ if (isLocked) {
 ①互斥锁（Mutex Lock）：在缓存失效时，让第一个请求去查询数据库并设置缓存，其他请求等待该缓存更新完毕，防止大量并发访问同一数据库资源。
 
 ②提前预热缓存：对于热点数据，可以在缓存失效前主动刷新缓存，或者延长热点数据的过期时间。
+
+![image](https://github.com/user-attachments/assets/45c99c84-886c-42fb-9566-6ee16501b8bb)
+
 
 <br>
 
@@ -369,6 +375,8 @@ if (isLocked) {
 ②双缓存策略：在缓存即将失效时，使用后台任务自动延长热点数据的缓存时间，或者使用双缓存策略，保证缓存数据的持续可用。
 
 ③限流和降级：当发现缓存雪崩的情况时，可以通过限流机制减少请求的数量，或者启用降级方案，返回默认值或部分降级数据，减少数据库压力。
+
+![image](https://github.com/user-attachments/assets/42292dfa-146c-498a-a672-04c70d471fc7)
 
 ---
 ### 14.使用 Redisson 实现布隆过滤器的示例：
