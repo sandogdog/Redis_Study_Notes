@@ -414,3 +414,18 @@ boolean notExists = bloomFilter.contains("element2");  // false
 ![image](https://github.com/user-attachments/assets/28d65465-9b12-4d83-9829-edc068bc79c2)
 
 ![image](https://github.com/user-attachments/assets/13f661d4-1e64-4318-8725-4a858d5af616)
+
+AOF
+![image](https://github.com/user-attachments/assets/06e7b8af-6143-4d1c-95e5-d5214fde2bc1)
+
+![image](https://github.com/user-attachments/assets/03346602-446c-4fd6-96f1-60e701edbc34)
+
+![image](https://github.com/user-attachments/assets/dfdb5f9b-4809-4871-a91d-602bd315ce8a)
+
+---
+
+### 17.Redis的数据过期策略
+![image](https://github.com/user-attachments/assets/0641977e-40c5-40bc-a845-2f2a3d4861eb)
+
+![image](https://github.com/user-attachments/assets/d27b54ab-e876-47bc-9701-59f8ac75edc1)
+
