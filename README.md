@@ -445,3 +445,14 @@ AOF
 
 ### 19.Redis分布式锁实现原理
 ![image](https://github.com/user-attachments/assets/26877915-6a36-4e49-abec-ce3a0b47ec04)
+
+Redisson实现的分布式锁：
+![image](https://github.com/user-attachments/assets/fdab87a9-9996-4e4b-a87e-1ad5f21efca5)
+(最好提一嘴lua脚本)
+![image](https://github.com/user-attachments/assets/4ac05f11-bbb0-4515-90aa-8c7a70b141bc)
+
+![image](https://github.com/user-attachments/assets/6205b5ac-8682-427f-909a-23b03533e27e)
+
+![image](https://github.com/user-attachments/assets/3e4d0068-c43e-4be1-ac7f-09738a052e8a)
+
+![image](https://github.com/user-attachments/assets/2df3bb5b-67d4-4e8f-ade3-a02e8f438c5b)
