@@ -458,3 +458,14 @@ Redisson实现的分布式锁：
 ![image](https://github.com/user-attachments/assets/2df3bb5b-67d4-4e8f-ade3-a02e8f438c5b)
 
 ![image](https://github.com/user-attachments/assets/dc672a56-5b71-4d59-bdb7-1db66d3c747b)
+
+---
+
+### 20.Redis的主从复制和主从同步
+![image](https://github.com/user-attachments/assets/be6f9b9b-40c6-4f91-a1c2-c9146bf54beb)
+
+![image](https://github.com/user-attachments/assets/10f67ab3-ea11-4893-b4cd-dd5516cbebf5)
+
+![image](https://github.com/user-attachments/assets/3086e5f3-8f55-4972-96aa-9c154ab04473)
+
+![image](https://github.com/user-attachments/assets/8a8c604d-9a7d-4267-8aac-79cdafd659ce)
