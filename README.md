@@ -379,6 +379,7 @@ if (isLocked) {
 ![image](https://github.com/user-attachments/assets/42292dfa-146c-498a-a672-04c70d471fc7)
 
 ---
+
 ### 14.使用 Redisson 实现布隆过滤器的示例：
 ```Java
 // 初始化 Redisson 客户端
@@ -429,3 +430,18 @@ AOF
 
 ![image](https://github.com/user-attachments/assets/d27b54ab-e876-47bc-9701-59f8ac75edc1)
 
+---
+
+### 18.Redis的数据淘汰策略
+![image](https://github.com/user-attachments/assets/bf49f44a-42dc-4272-b433-2d03f17bf42d)
+
+![image](https://github.com/user-attachments/assets/4caa7e1e-f3f0-461a-8c85-84eef7390f28)
+
+![image](https://github.com/user-attachments/assets/64407bad-d860-4eb3-8f08-3f8f6a4cf515)
+
+![image](https://github.com/user-attachments/assets/a0c04256-6763-46b7-9754-a071a9ede91e)
+
+---
+
+### 19.Redis分布式锁实现原理
+![image](https://github.com/user-attachments/assets/26877915-6a36-4e49-abec-ce3a0b47ec04)
