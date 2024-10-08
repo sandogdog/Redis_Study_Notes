@@ -469,3 +469,14 @@ Redisson实现的分布式锁：
 ![image](https://github.com/user-attachments/assets/3086e5f3-8f55-4972-96aa-9c154ab04473)
 
 ![image](https://github.com/user-attachments/assets/8a8c604d-9a7d-4267-8aac-79cdafd659ce)
+
+---
+
+### 21.Redis的哨兵模式和集群脑裂
+![image](https://github.com/user-attachments/assets/9cbd5ef1-1714-43f5-9f9d-9b830a9620e5)
+
+![image](https://github.com/user-attachments/assets/03b7e7c9-3b53-410f-b8a9-be0dfca86a77)
+
+![image](https://github.com/user-attachments/assets/533695a1-a4d6-4bb7-9793-e6cfb5470536)
+
+![image](https://github.com/user-attachments/assets/86ebb926-0156-4d66-bbaf-9d54056a94a1)
