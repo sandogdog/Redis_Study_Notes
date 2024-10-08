@@ -480,3 +480,35 @@ Redisson实现的分布式锁：
 ![image](https://github.com/user-attachments/assets/533695a1-a4d6-4bb7-9793-e6cfb5470536)
 
 ![image](https://github.com/user-attachments/assets/86ebb926-0156-4d66-bbaf-9d54056a94a1)
+
+---
+
+# 22.Redis的分片集群和数据读写规则
+![image](https://github.com/user-attachments/assets/1f48b32d-e213-48e6-b31e-5101c5c8223d)
+
+![image](https://github.com/user-attachments/assets/eef94dc0-410e-4527-995f-cdf1296231bb)
+
+![image](https://github.com/user-attachments/assets/33c29db5-9ac9-41ce-be87-4e61d9b12941)
+
+![image](https://github.com/user-attachments/assets/9be6eec2-36fc-41bd-a144-fda293eef177)
+
+---
+
+# 23.Redis是单线程的，为什么还那么快？
+![image](https://github.com/user-attachments/assets/7596a1ab-9e94-4120-a71f-10b361e06a42)
+
+![image](https://github.com/user-attachments/assets/803f6267-92ac-4e6c-8883-9af662f4f390)
+
+![image](https://github.com/user-attachments/assets/0bd23d5c-4696-4463-a5cf-e2fc1864c2ed)
+
+![image](https://github.com/user-attachments/assets/71764bfc-ea6f-49bd-94bf-1f802ac3698d)
+
+![image](https://github.com/user-attachments/assets/510ac28a-b190-4e63-8e89-8265e9a38e4c)
+
+![image](https://github.com/user-attachments/assets/9a9b564d-8f90-4750-92cc-14e137b3aacf)
+
+![image](https://github.com/user-attachments/assets/22ecdf50-46c6-4373-84e9-5c5caaaccd09)
+
+![image](https://github.com/user-attachments/assets/d43226ab-7719-4882-903f-7497c91fd978)
+
+![image](https://github.com/user-attachments/assets/4fec7d34-8448-4e7b-9186-07fe619de0a8)
