@@ -156,7 +156,11 @@ if (lockAcquired) {
 
 ---
 
-### 11.Redisson 是一个基于 Redis 的 Java 驱动程序和工具集，它提供了比普通 Redis 客户端更多的高级功能，特别是适用于分布式系统中的各种需求。Redisson 提供了易于使用的 Redis 接口，支持多种 Redis 数据结构和分布式工具，如分布式锁、分布式集合、阻塞队列等。
+# 11.关于Redisson 
+
+Redisson是一个基于 Redis 的 Java 驱动程序和工具集，它提供了比普通 Redis 客户端更多的高级功能，特别是适用于分布式系统中的各种需求。Redisson 提供了易于使用的 Redis 接口，支持多种 Redis 数据结构和分布式工具，如分布式锁、分布式集合、阻塞队列等。
+
+![image](https://github.com/user-attachments/assets/2020a16f-e64a-49ea-97e1-90244263c1e7)
 
 #### Redisson 的核心功能
 
